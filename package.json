@@ -1,0 +1,9 @@
+{
+  "name": "soc-tennessee-tech-website",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/dev-server.mjs",
+    "start": "npm run dev"
+  }
+}

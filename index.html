@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="SOC Student Ministry is a collegiate Christian ministry at Tennessee Tech connected with Sycamore Church of Christ."
+    >
+    <title>SOC Student Ministry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles/site.css">
+    <script src="https://www.instagram.com/embed.js" async></script>
+    <script src="scripts/site.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="SOC home">
+        <img class="brand-logo" src="assets/Logo.jpg" alt="SOC Tennessee Tech logo">
+        <span>
+          <strong>SOC Student Ministry</strong>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only">Toggle navigation</span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="activities.html">Activities</a>
+        <a href="excursions.html">Excursions</a>
+        <a href="#about">About</a>
+      </nav>
+      <div class="header-actions" aria-label="Site actions">
+        <a href="https://eagleengage.tntech.edu/feeds?type=club&type_id=35650&tab=about" target="_blank" rel="noopener">Join Us</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <img src="assets/images/Soc House.jpg" alt="SOC house at Tennessee Tech">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1>Experience Faith, Friendship, and Belonging</h1>
+          <p>
+            Join SOC Student Ministry at Tennessee Tech and find a welcoming Christian community
+            shaped by worship, meals, Bible study, retreats, and meaningful connections.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="activities.html">View Activities</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section about-section">
+        <h2>About Us</h2>
+        <div class="about-grid">
+          <div class="seal-panel" aria-hidden="true">
+            <div class="seal">
+              <img src="assets/Logo.jpg" alt="">
+            </div>
+            <blockquote>
+              “Faith grows best around a table, on campus, and with people who know your name.”
+            </blockquote>
+          </div>
+          <div class="about-copy">
+            <h3>Who we are</h3>
+            <p>
+              SOC is a Christian student community at Tennessee Tech connected with
+              <a href="https://sycamorecoc.com/" target="_blank" rel="noopener">Sycamore Church of Christ</a>.
+              We create space for students to worship, study Scripture, ask honest
+              questions, take retreats and trips together, and build friendships that
+              make college feel more like home.
+            </p>
+            <div class="about-photos">
+              <img src="assets/images/Wings up.jpg" alt="SOC students with Wings Up">
+              <img src="assets/images/Picnic table candid.jpg" alt="SOC students gathered at picnic tables">
+              <button class="flyer-zoom about-poster" type="button" data-full-src="assets/flyers/SOC FLYER.png" data-full-alt="SOC Student Ministry poster">
+                <img src="assets/flyers/SOC FLYER.png" alt="SOC Student Ministry poster">
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section event-band">
+        <div class="section-heading">
+          <h2>Upcoming Events</h2>
+        </div>
+        <div class="event-preview-grid">
+          <article class="event-tile" data-event-card="wednesday">
+            <button class="flyer-zoom" type="button" data-full-src="assets/flyers/Wednesday Bible Classes.jpg" data-full-alt="Wednesday Bible Classes flyer">
+              <img src="assets/flyers/Wednesday Bible Classes.jpg" alt="Wednesday Bible Classes flyer">
+            </button>
+            <div class="event-tile-body">
+              <h3 data-event-title>Wednesday Bible Classes</h3>
+              <p data-event-description>Next Wednesday Bible Class from the semester flyer.</p>
+              <div class="event-meta">
+                <strong data-event-day>--</strong>
+                <span data-event-date>Upcoming</span>
+                <small data-event-location>Sycamore Church of Christ</small>
+              </div>
+            </div>
+          </article>
+          <article class="event-tile" data-event-card="refuel">
+            <button class="flyer-zoom" type="button" data-full-src="assets/flyers/Refuel Monday.jpg" data-full-alt="Refuel Monday Fellowship flyer">
+              <img src="assets/flyers/Refuel Monday.jpg" alt="Refuel Monday Fellowship flyer">
+            </button>
+            <div class="event-tile-body">
+              <h3 data-event-title>Refuel Monday</h3>
+              <p data-event-description>Next Refuel Monday event from the semester flyer.</p>
+              <div class="event-meta">
+                <strong data-event-day>--</strong>
+                <span data-event-date>Upcoming</span>
+                <small data-event-location>SOC House</small>
+              </div>
+            </div>
+          </article>
+          <article class="event-tile" data-event-card="sunday">
+            <button class="flyer-zoom" type="button" data-full-src="assets/flyers/Sunday Bible Class.jpg" data-full-alt="Sunday Bible Class flyer">
+              <img src="assets/flyers/Sunday Bible Class.jpg" alt="Sunday Bible Class flyer">
+            </button>
+            <div class="event-tile-body">
+              <h3 data-event-title>Sunday Bible Class</h3>
+              <p data-event-description>Next Sunday Bible Class from the semester flyer.</p>
+              <div class="event-meta">
+                <strong data-event-day>--</strong>
+                <span data-event-date>Upcoming</span>
+                <small data-event-location>Sycamore Church of Christ</small>
+              </div>
+            </div>
+          </article>
+          <article class="event-tile" data-event-card="lunch">
+            <button class="flyer-zoom" type="button" data-full-src="assets/flyers/Lunch Menu.jpg" data-full-alt="Tuesday lunch menu flyer">
+              <img src="assets/flyers/Lunch Menu.jpg" alt="Tuesday lunch menu flyer">
+            </button>
+            <div class="event-tile-body">
+              <h3 data-event-title>Tuesday Lunch</h3>
+              <p data-event-description>Next Tuesday lunch from the semester menu.</p>
+              <div class="event-meta">
+                <strong data-event-day>--</strong>
+                <span data-event-date>Upcoming</span>
+                <small data-event-location>SOC House</small>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="center-action">
+          <a class="pill-link" href="activities.html">See all events</a>
+        </div>
+      </section>
+
+      <section class="section instagram-section" aria-labelledby="instagram-heading">
+        <div class="section-heading">
+          <h2 id="instagram-heading">Latest from Instagram</h2>
+          <a class="pill-link" href="https://www.instagram.com/ttu_soc/" target="_blank" rel="noopener">Follow @ttu_soc</a>
+        </div>
+        <div class="instagram-embed-card">
+          <blockquote
+            class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/ttu_soc/"
+            data-instgrm-version="14"
+          >
+            <a href="https://www.instagram.com/ttu_soc/" target="_blank" rel="noopener">
+              View SOC Student Ministry on Instagram
+            </a>
+          </blockquote>
+          <noscript>
+            <p>
+              Instagram requires JavaScript to display embedded posts.
+              <a href="https://www.instagram.com/ttu_soc/" target="_blank" rel="noopener">Visit @ttu_soc on Instagram</a>.
+            </p>
+          </noscript>
+        </div>
+      </section>
+
+      <section class="section gallery-section">
+        <div class="section-heading">
+          <h2>Gallery</h2>
+        </div>
+        <div class="gallery-grid">
+          <img src="assets/images/Candid Stairs.jpg" alt="SOC students on stairs">
+          <img src="assets/Excursions/Camp group photo.jpeg" alt="SOC camp group photo">
+          <img src="assets/images/Picnic table group candid.jpg" alt="SOC students at picnic tables">
+          <img src="assets/Excursions/Group pic bridge.jpg" alt="SOC group on a bridge">
+          <img src="assets/images/Patio.jpg" alt="SOC students on the patio">
+          <img src="assets/Excursions/SOC girls retreat.jpg" alt="SOC girls retreat group">
+        </div>
+        <div class="center-action">
+          <a class="pill-link" href="excursions.html">View all</a>
+        </div>
+      </section>
+
+      <section class="section footer-top">
+        <a class="footer-brand" href="index.html">
+          <img class="brand-logo" src="assets/Logo.jpg" alt="SOC Tennessee Tech logo">
+          <strong>SOC Student Ministry</strong>
+        </a>
+        <div class="footer-links">
+          <div>
+            <h3>About Us</h3>
+            <a href="#about">Our Mission</a>
+            <a href="excursions.html">History</a>
+          </div>
+          <div>
+            <h3>Explore</h3>
+            <a href="activities.html">Events</a>
+            <a href="excursions.html">Gallery</a>
+          </div>
+          <div>
+            <h3>Support</h3>
+            <a href="activities.html">Membership</a>
+            <a href="excursions.html">Excursions</a>
+          </div>
+          <div>
+            <h3>Connect</h3>
+            <a href="https://www.instagram.com/ttu_soc/" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://sycamorecoc.com/" target="_blank" rel="noopener">Sycamore Church of Christ</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span data-year></span> SOC Student Ministry</p>
+      <p><a href="https://sycamorecoc.com/" target="_blank" rel="noopener">Part of the Sycamore Church of Christ family</a></p>
+    </footer>
+  </body>
+</html>
