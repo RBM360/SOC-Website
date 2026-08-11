@@ -198,7 +198,10 @@ function buildCalendarEvent(event, index = 0) {
   const timestamp = new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
   const uid = `${slugifyFileName(event.title)}-${event.date}-${index}@soc-tennessee-tech`;
   const dateLines = event.allDay
-    ? [`DTSTART;VALUE=DATE:${formatCalendarDate(event.date)}`, `DTEND;VALUE=DATE:${getNextCalendarDate(event.date)}`]
+    ? [
+        `DTSTART;VALUE=DATE:${formatCalendarDate(event.date)}`,
+        `DTEND;VALUE=DATE:${getNextCalendarDate(event.endDate || event.date)}`
+      ]
     : [`DTSTART:${formatCalendarDate(event.date, event.startTime)}`, `DTEND:${formatCalendarDate(event.date, event.endTime)}`];
 
   return [
@@ -446,6 +449,28 @@ const activityCalendarDefaults = {
     endTime: "19:30",
     location: sycamoreAddress,
     prefix: "Wednesday Bible Classes"
+  },
+  singing: {
+    startTime: "19:45",
+    endTime: "20:15",
+    location: sycamoreAddress,
+    prefix: "Singing After Class"
+  },
+  connections: {
+    startTime: "18:00",
+    endTime: "19:00",
+    location: sycamoreAddress,
+    prefix: "Connections"
+  },
+  special: {
+    allDay: true,
+    location: socHouseAddress,
+    prefix: "SOC Event"
+  },
+  note: {
+    allDay: true,
+    location: "",
+    prefix: "SOC Calendar Note"
   }
 };
 
@@ -457,7 +482,7 @@ function getActivityGroupFromCalendarEvent(calendarEvent) {
   const eventText = calendarEvent.textContent.toLowerCase();
 
   if (calendarEvent.classList.contains("break") || calendarEvent.classList.contains("cancelled")) {
-    return null;
+    return "note";
   }
 
   if (calendarEvent.classList.contains("refuel")) {
@@ -466,6 +491,18 @@ function getActivityGroupFromCalendarEvent(calendarEvent) {
 
   if (calendarEvent.classList.contains("meal")) {
     return "lunch";
+  }
+
+  if (calendarEvent.classList.contains("singing")) {
+    return "singing";
+  }
+
+  if (calendarEvent.classList.contains("connections")) {
+    return "connections";
+  }
+
+  if (calendarEvent.classList.contains("special")) {
+    return "special";
   }
 
   if (eventText.includes("wednesday")) {
@@ -530,11 +567,37 @@ function calendarEventFromCard(calendarEvent) {
   return {
     title,
     date,
-    startTime: defaults.startTime,
-    endTime: defaults.endTime,
-    location: defaults.location,
+    endDate: calendarEvent.dataset.endDate,
+    allDay: defaults.allDay && !calendarEvent.dataset.startTime,
+    startTime: calendarEvent.dataset.startTime || defaults.startTime,
+    endTime: calendarEvent.dataset.endTime || defaults.endTime,
+    location: calendarEvent.dataset.location || defaults.location,
     description: `${description}. From the SOC Campus Ministry semester schedule.`
   };
+}
+
+function allCalendarEventsFromPage() {
+  const eventKeys = new Set();
+
+  return Array.from(document.querySelectorAll(".semester-calendar .calendar-event"))
+    .filter((calendarEvent) => !calendarEvent.classList.contains("break") && !calendarEvent.classList.contains("cancelled"))
+    .map(calendarEventFromCard)
+    .filter(Boolean)
+    .filter((event) => {
+      const key = `${event.date}-${event.title}`;
+
+      if (eventKeys.has(key)) {
+        return false;
+      }
+
+      eventKeys.add(key);
+      return true;
+    })
+    .sort((firstEvent, secondEvent) => {
+      const firstDate = `${firstEvent.date}T${firstEvent.startTime || "00:00"}`;
+      const secondDate = `${secondEvent.date}T${secondEvent.startTime || "00:00"}`;
+      return firstDate.localeCompare(secondDate);
+    });
 }
 
 document.querySelectorAll("[data-event-card]").forEach((card) => {
@@ -575,6 +638,12 @@ document.querySelectorAll("[data-calendar-group]").forEach((button) => {
     }
 
     downloadCalendar(calendarEventsForGroup(group), `SOC ${defaults.prefix} 2026`);
+  });
+});
+
+document.querySelectorAll("[data-calendar-all]").forEach((button) => {
+  button.addEventListener("click", () => {
+    downloadCalendar(allCalendarEventsFromPage(), "SOC Fall Semester Calendar 2026");
   });
 });
 
@@ -635,6 +704,10 @@ const calendarFlyers = {
   wednesday: {
     src: "assets/flyers/Wednesday Bible Classes.jpg",
     alt: "Wednesday Bible Classes schedule flyer"
+  },
+  fall: {
+    src: "assets/flyers/socfall26.png",
+    alt: "SOC Fall Calendar 2026"
   }
 };
 
@@ -651,6 +724,14 @@ function getCalendarFlyer(calendarEvent) {
 
   if (calendarEvent.classList.contains("meal")) {
     return calendarFlyers.lunch;
+  }
+
+  if (
+    calendarEvent.classList.contains("singing") ||
+    calendarEvent.classList.contains("connections") ||
+    calendarEvent.classList.contains("special")
+  ) {
+    return calendarFlyers.fall;
   }
 
   if (eventText.includes("wednesday")) {
@@ -681,6 +762,7 @@ function openCalendarFlyer(calendarEvent) {
 document.querySelectorAll(".calendar-event").forEach((calendarEvent) => {
   const flyer = getCalendarFlyer(calendarEvent);
   const calendarEventDetails = calendarEventFromCard(calendarEvent);
+  const canAddSingleDate = !calendarEvent.classList.contains("break") && !calendarEvent.classList.contains("cancelled");
 
   if (!flyer && !calendarEventDetails) {
     return;
@@ -701,7 +783,7 @@ document.querySelectorAll(".calendar-event").forEach((calendarEvent) => {
     });
   }
 
-  if (calendarEventDetails) {
+  if (calendarEventDetails && canAddSingleDate) {
     const addButton = document.createElement("button");
     addButton.className = "calendar-download calendar-event-download";
     addButton.type = "button";
