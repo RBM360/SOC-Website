@@ -4,10 +4,18 @@ import { dirname, extname, join, normalize, resolve } from "node:path";
 const root = process.cwd();
 const htmlFiles = readdirSync(root).filter((file) => file.endsWith(".html"));
 const checkedExtensions = new Set([".css", ".js", ".jpg", ".jpeg", ".png", ".ttf", ".html"]);
+const requiredHeaders = [
+  "Content-Security-Policy",
+  "Referrer-Policy",
+  "X-Content-Type-Options",
+  "X-Frame-Options",
+  "Permissions-Policy",
+  "Strict-Transport-Security"
+];
 const problems = [];
 
 function isExternalReference(value) {
-  return /^(https?:|mailto:|tel:|#|data:|javascript:)/i.test(value);
+  return /^(https?:|mailto:|tel:|#|data:)/i.test(value);
 }
 
 function cleanReference(value) {
@@ -75,6 +83,42 @@ function checkHtmlFile(file) {
   if (!source.includes('<meta name="viewport" content="width=device-width, initial-scale=1">')) {
     problems.push(`${file}: missing mobile viewport meta tag`);
   }
+
+  if (!source.includes('<meta name="referrer" content="strict-origin-when-cross-origin">')) {
+    problems.push(`${file}: missing strict referrer policy meta tag`);
+  }
+
+  if (/\s(?:href|src)=["']javascript:/i.test(source)) {
+    problems.push(`${file}: javascript: URLs are not allowed`);
+  }
+
+  if (/\son[a-z]+=/i.test(source)) {
+    problems.push(`${file}: inline event handlers are not allowed`);
+  }
+
+  const externalHttpRefs = source.match(/\b(?:src|href)=["']http:\/\/(?!127\.0\.0\.1|localhost)/gi);
+  if (externalHttpRefs) {
+    problems.push(`${file}: external links and assets must use https`);
+  }
+
+  const anchors = source.matchAll(/<a\b[^>]*>/gi);
+  for (const [anchor] of anchors) {
+    if (!/\btarget=["']_blank["']/i.test(anchor)) {
+      continue;
+    }
+
+    const rel = anchor.match(/\brel=["']([^"']+)["']/i)?.[1].toLowerCase() || "";
+    if (!rel.split(/\s+/).includes("noopener") || !rel.split(/\s+/).includes("noreferrer")) {
+      problems.push(`${file}: target="_blank" links must include rel="noopener noreferrer"`);
+    }
+  }
+
+  const images = source.matchAll(/<img\b[^>]*>/gi);
+  for (const [image] of images) {
+    if (!/\balt=["'][^"']*["']/i.test(image)) {
+      problems.push(`${file}: image is missing alt text`);
+    }
+  }
 }
 
 function checkCssFile(file) {
@@ -101,6 +145,18 @@ for (const file of htmlFiles) {
 
 checkCssFile("styles/site.css");
 checkScriptFile("scripts/site.js");
+
+if (!existsSync(join(root, "_headers"))) {
+  problems.push("_headers is required for static host security defaults");
+} else {
+  const headers = readFileSync(join(root, "_headers"), "utf8");
+
+  for (const header of requiredHeaders) {
+    if (!headers.includes(`${header}:`)) {
+      problems.push(`_headers: missing ${header}`);
+    }
+  }
+}
 
 if (!existsSync(join(root, "index.html"))) {
   problems.push("index.html is required for static hosting");
