@@ -45,11 +45,26 @@ function createStaticServer() {
       return;
     }
 
+    const extension = extname(filePath).toLowerCase();
+    const cacheControl = extension === ".html"
+      ? "no-cache"
+      : "public, max-age=31536000, immutable";
+    const stream = createReadStream(filePath);
+
     response.writeHead(200, {
-      "Content-Type": mimeTypes[extname(filePath).toLowerCase()] || "application/octet-stream"
+      "Cache-Control": cacheControl,
+      "Content-Type": mimeTypes[extension] || "application/octet-stream"
     });
 
-    createReadStream(filePath).pipe(response);
+    stream.on("error", () => {
+      if (!response.headersSent) {
+        response.writeHead(500, { "Content-Type": "text/plain; charset=utf-8" });
+      }
+
+      response.end("Could not read file");
+    });
+
+    stream.pipe(response);
   });
 }
 

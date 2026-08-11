@@ -6,6 +6,21 @@ if (navToggle && siteNav) {
     const isOpen = siteNav.classList.toggle("is-open");
     navToggle.setAttribute("aria-expanded", String(isOpen));
   });
+
+  siteNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      siteNav.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && siteNav.classList.contains("is-open")) {
+      siteNav.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+      navToggle.focus();
+    }
+  });
 }
 
 document.querySelectorAll("[data-year]").forEach((node) => {
@@ -199,6 +214,10 @@ function buildCalendarEvent(event, index = 0) {
 }
 
 function downloadCalendar(events, fileName) {
+  if (!events.length) {
+    return;
+  }
+
   const calendarBody = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
@@ -209,13 +228,33 @@ function downloadCalendar(events, fileName) {
     "END:VCALENDAR"
   ].join("\r\n");
   const blob = new Blob([calendarBody], { type: "text/calendar;charset=utf-8" });
+  const objectUrl = URL.createObjectURL(blob);
   const link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
+  link.href = objectUrl;
   link.download = `${slugifyFileName(fileName)}.ics`;
   document.body.append(link);
   link.click();
   link.remove();
-  URL.revokeObjectURL(link.href);
+  window.setTimeout(() => URL.revokeObjectURL(objectUrl), 0);
+}
+
+function openDialog(dialog) {
+  if (typeof dialog.showModal === "function") {
+    dialog.showModal();
+    return;
+  }
+
+  dialog.setAttribute("open", "");
+}
+
+function closeDialog(dialog) {
+  if (typeof dialog.close === "function") {
+    dialog.close();
+    return;
+  }
+
+  dialog.removeAttribute("open");
+  dialog.dispatchEvent(new Event("close"));
 }
 
 function eventsForDate(events, date) {
@@ -262,13 +301,13 @@ function getWeekOfWelcomeDialog() {
         </div>
       </div>
       <div class="wow-dialog-art">
-        <img src="assets/flyers/Week of welcome graphic.png" alt="Week of Welcome 2026 itinerary graphic">
+        <img loading="lazy" decoding="async" src="assets/flyers/Week of welcome graphic.png" alt="Week of Welcome 2026 itinerary graphic">
       </div>
     </div>
   `;
   document.body.append(dialog);
 
-  dialog.querySelector(".wow-dialog-close").addEventListener("click", () => dialog.close());
+  dialog.querySelector(".wow-dialog-close").addEventListener("click", () => closeDialog(dialog));
   dialog.querySelector("[data-wow-calendar-all]").addEventListener("click", () => {
     downloadCalendar(weekOfWelcomeEvents, "SOC Week of Welcome 2026");
   });
@@ -280,7 +319,7 @@ function getWeekOfWelcomeDialog() {
   });
   dialog.addEventListener("click", (event) => {
     if (event.target === dialog) {
-      dialog.close();
+      closeDialog(dialog);
     }
   });
 
@@ -296,7 +335,7 @@ if (shouldShowWeekOfWelcome()) {
     <strong>View schedule</strong>
   `;
   weekOfWelcomeButton.addEventListener("click", () => {
-    getWeekOfWelcomeDialog().showModal();
+    openDialog(getWeekOfWelcomeDialog());
   });
   document.body.append(weekOfWelcomeButton);
 }
@@ -500,27 +539,42 @@ function calendarEventFromCard(calendarEvent) {
 
 document.querySelectorAll("[data-event-card]").forEach((card) => {
   const event = getNextEvent(eventSchedules[card.dataset.eventCard] || []);
+  const titleNode = card.querySelector("[data-event-title]");
+  const descriptionNode = card.querySelector("[data-event-description]");
+  const dayNode = card.querySelector("[data-event-day]");
+  const dateNode = card.querySelector("[data-event-date]");
+  const locationNode = card.querySelector("[data-event-location]");
 
-  if (!event) {
-    card.querySelector("[data-event-title]").textContent = "Semester schedule complete";
-    card.querySelector("[data-event-description]").textContent = "Check Instagram for the latest updates.";
-    card.querySelector("[data-event-day]").textContent = "--";
-    card.querySelector("[data-event-date]").textContent = "Done";
-    card.querySelector("[data-event-location]").textContent = "@ttu_soc";
+  if (!titleNode || !descriptionNode || !dayNode || !dateNode || !locationNode) {
     return;
   }
 
-  card.querySelector("[data-event-title]").textContent = event.title;
-  card.querySelector("[data-event-description]").textContent = event.description;
-  card.querySelector("[data-event-day]").textContent = event.date.getDate();
-  card.querySelector("[data-event-date]").innerHTML = formatEventDate(event.date);
-  card.querySelector("[data-event-location]").textContent = event.location;
+  if (!event) {
+    titleNode.textContent = "Semester schedule complete";
+    descriptionNode.textContent = "Check Instagram for the latest updates.";
+    dayNode.textContent = "--";
+    dateNode.textContent = "Done";
+    locationNode.textContent = "@ttu_soc";
+    return;
+  }
+
+  titleNode.textContent = event.title;
+  descriptionNode.textContent = event.description;
+  dayNode.textContent = event.date.getDate();
+  dateNode.innerHTML = formatEventDate(event.date);
+  locationNode.textContent = event.location;
 });
 
 document.querySelectorAll("[data-calendar-group]").forEach((button) => {
   button.addEventListener("click", () => {
     const group = button.dataset.calendarGroup;
-    downloadCalendar(calendarEventsForGroup(group), `SOC ${activityCalendarDefaults[group].prefix} 2026`);
+    const defaults = activityCalendarDefaults[group];
+
+    if (!defaults) {
+      return;
+    }
+
+    downloadCalendar(calendarEventsForGroup(group), `SOC ${defaults.prefix} 2026`);
   });
 });
 
@@ -536,14 +590,19 @@ function getFlyerDialog() {
   dialog.className = "flyer-dialog";
   dialog.innerHTML = `
     <button class="flyer-dialog-close" type="button" aria-label="Close flyer">×</button>
-    <img alt="">
+    <img decoding="async" alt="">
   `;
   document.body.append(dialog);
 
-  dialog.querySelector(".flyer-dialog-close").addEventListener("click", () => dialog.close());
+  dialog.querySelector(".flyer-dialog-close").addEventListener("click", () => closeDialog(dialog));
+  dialog.addEventListener("close", () => {
+    const image = dialog.querySelector("img");
+    image.removeAttribute("src");
+    image.alt = "";
+  });
   dialog.addEventListener("click", (event) => {
     if (event.target === dialog) {
-      dialog.close();
+      closeDialog(dialog);
     }
   });
 
@@ -556,7 +615,7 @@ document.querySelectorAll(".flyer-zoom").forEach((button) => {
     const image = dialog.querySelector("img");
     image.src = button.dataset.fullSrc;
     image.alt = button.dataset.fullAlt || "Event flyer";
-    dialog.showModal();
+    openDialog(dialog);
   });
 });
 
@@ -616,7 +675,7 @@ function openCalendarFlyer(calendarEvent) {
   const image = dialog.querySelector("img");
   image.src = flyer.src;
   image.alt = flyer.alt;
-  dialog.showModal();
+  openDialog(dialog);
 }
 
 document.querySelectorAll(".calendar-event").forEach((calendarEvent) => {
