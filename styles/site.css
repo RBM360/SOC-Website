@@ -7,10 +7,27 @@
   --muted: #5f5549;
   --brown: #5b2d12;
   --gold: #ffc400;
+  --button-accent: #4f8f98;
+  --button-accent-hover: #3f747d;
+  --button-accent-soft: #a8d8de;
+  --button-accent-soft-hover: #c2e6ea;
+  --rust: #c45c32;
+  --deep-blue: #003b73;
+  --bible-blue: #5e9ca6;
+  --break-red: #9f493f;
   --focus: #6f00cc;
   --line: rgba(29, 23, 18, 0.18);
   --shadow: 0 26px 70px rgba(29, 23, 18, 0.22);
+  --card-shadow: 0 16px 34px rgba(29, 23, 18, 0.1);
   --max: 1370px;
+}
+
+@font-face {
+  font-family: "Chewy";
+  src: url("../assets/fonts/Chewy-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 * {
@@ -28,11 +45,19 @@ body {
   font-family: "Montserrat", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 16px;
   line-height: 1.55;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 img {
   display: block;
   max-width: 100%;
+}
+
+html,
+body {
+  overflow-x: hidden;
 }
 
 a {
@@ -81,7 +106,7 @@ code {
   min-height: 58px;
   margin: 42px auto -100px;
   padding: 0.65rem 1rem;
-  background: rgba(251, 250, 246, 0.96);
+  background: rgba(251, 250, 246, 0.97);
   border: 1px solid rgba(29, 23, 18, 0.2);
   border-radius: 4px;
   box-shadow: 0 12px 28px rgba(29, 23, 18, 0.14);
@@ -93,6 +118,7 @@ code {
   display: inline-flex;
   align-items: center;
   gap: 0.72rem;
+  min-width: 0;
   text-decoration: none;
 }
 
@@ -107,10 +133,11 @@ code {
 
 .brand strong,
 .footer-brand strong {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 1.6rem;
-  font-weight: 700;
+  font-family: "Chewy", "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.65rem, 2vw, 2.12rem);
+  font-weight: 400;
   line-height: 1;
+  overflow-wrap: anywhere;
 }
 
 .site-nav {
@@ -121,7 +148,7 @@ code {
 
 .site-nav a,
 .header-actions a {
-  font-size: 0.88rem;
+  font-size: clamp(0.98rem, 1.25vw, 1.14rem);
   font-weight: 800;
   letter-spacing: 0.02em;
   text-decoration: none;
@@ -135,7 +162,12 @@ code {
 
 .site-nav a:hover,
 .site-nav a[aria-current="page"] {
-  border-color: var(--ink);
+  color: var(--button-accent-hover);
+  border-color: var(--button-accent);
+}
+
+.mobile-nav-action {
+  display: none;
 }
 
 .header-actions {
@@ -145,11 +177,16 @@ code {
 
 .header-actions a {
   padding: 0.7rem 1rem;
-  border: 1px solid transparent;
+  color: white;
+  background: var(--button-accent);
+  border: 1px solid var(--button-accent);
+  border-radius: 4px;
+  box-shadow: 0 10px 22px rgba(41, 89, 96, 0.22);
 }
 
 .header-actions a:hover {
-  border-color: var(--ink);
+  background: var(--button-accent-hover);
+  border-color: var(--button-accent-hover);
 }
 
 .nav-toggle {
@@ -174,6 +211,7 @@ main {
   margin: 0 auto;
   background: var(--cream);
   box-shadow: var(--shadow);
+  flex: 1 0 auto;
 }
 
 .hero {
@@ -190,46 +228,59 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 48%;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(0deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.18) 58%),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.08) 72%);
+  background: transparent;
 }
 
 .hero-content {
   position: relative;
   width: 100%;
-  max-width: 900px;
-  padding: 12rem clamp(1.5rem, 4vw, 4rem) 5rem;
+  max-width: 610px;
+  padding: 18rem clamp(1.5rem, 4vw, 4rem) clamp(2.8rem, 6vh, 4.75rem);
   color: white;
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.62);
+}
+
+.hero-content::before {
+  content: "";
+  position: absolute;
+  inset: 15.5rem 0 1.7rem 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 32% 42%, rgba(20, 53, 80, 0.6), rgba(20, 53, 80, 0.34) 46%, rgba(20, 53, 80, 0) 82%),
+    linear-gradient(90deg, rgba(15, 45, 70, 0.46), rgba(15, 45, 70, 0.18) 68%, rgba(15, 45, 70, 0) 100%);
+  filter: blur(22px);
+  pointer-events: none;
 }
 
 .hero-content h1,
 .page-hero h1,
 .section h2 {
   margin: 0;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-weight: 500;
+  font-family: "Chewy", "Cormorant Garamond", Georgia, serif;
+  font-weight: 400;
   letter-spacing: 0;
 }
 
 .hero-content h1 {
-  max-width: 760px;
-  font-size: clamp(3rem, 4.6vw, 4.8rem);
+  max-width: 590px;
+  font-size: clamp(2.55rem, 3.65vw, 4rem);
   line-height: 1.06;
   text-wrap: balance;
 }
 
 .hero-content p {
-  max-width: 740px;
+  max-width: 590px;
   margin: 1.1rem 0 0;
   font-size: clamp(1.05rem, 1.35vw, 1.25rem);
   font-weight: 600;
   line-height: 1.55;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.72);
 }
 
 .hero-actions {
@@ -252,13 +303,26 @@ main {
   font-weight: 800;
   text-decoration: none;
   text-transform: uppercase;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
 }
 
 .button.primary {
   min-width: 150px;
-  color: var(--ink);
-  background: var(--gold);
-  border-color: var(--gold);
+  color: white;
+  background: var(--button-accent);
+  border-color: var(--button-accent);
+  box-shadow: 0 10px 22px rgba(41, 89, 96, 0.28);
+}
+
+.button.primary:hover {
+  background: var(--button-accent-hover);
+  border-color: var(--button-accent-hover);
+  transform: translateY(-1px);
 }
 
 .section {
@@ -300,7 +364,9 @@ main {
   place-items: center;
   width: min(100%, 420px);
   aspect-ratio: 1;
-  border: 6px double rgba(29, 23, 18, 0.16);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.65), rgba(226, 214, 196, 0.42));
+  border: 6px double rgba(79, 143, 152, 0.34);
   border-radius: 50%;
   color: rgba(29, 23, 18, 0.22);
   text-align: center;
@@ -311,7 +377,7 @@ main {
   height: 78%;
   object-fit: contain;
   border-radius: 50%;
-  opacity: 0.16;
+  opacity: 0.22;
 }
 
 blockquote {
@@ -369,6 +435,7 @@ blockquote {
   background: var(--cream-light);
   border: 1px solid var(--line);
   border-radius: 4px;
+  box-shadow: var(--card-shadow);
 }
 
 .about-poster img {
@@ -389,8 +456,18 @@ blockquote {
 
 .event-tile {
   background: var(--cream-light);
+  border: 1px solid rgba(29, 23, 18, 0.12);
   border-radius: 3px;
   overflow: hidden;
+  box-shadow: 0 12px 26px rgba(29, 23, 18, 0.08);
+  transition:
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.event-tile:hover {
+  box-shadow: var(--card-shadow);
+  transform: translateY(-2px);
 }
 
 .flyer-zoom {
@@ -447,9 +524,10 @@ blockquote {
 }
 
 .event-meta strong {
-  font-family: "Cormorant Garamond", Georgia, serif;
+  color: var(--button-accent-hover);
+  font-family: "Chewy", "Cormorant Garamond", Georgia, serif;
   font-size: 3.1rem;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 0.85;
 }
 
@@ -474,8 +552,15 @@ blockquote {
   min-height: 36px;
   padding: 0.4rem 0.9rem;
   border-radius: 999px;
-  background: transparent;
+  background: rgba(251, 250, 246, 0.42);
   font-size: 0.78rem;
+}
+
+.pill-link:hover {
+  color: white;
+  background: var(--button-accent);
+  border-color: var(--button-accent);
+  transform: translateY(-1px);
 }
 
 .gallery-section {
@@ -491,6 +576,12 @@ blockquote {
 
 .gallery-grid img {
   height: 100%;
+  object-fit: cover;
+}
+
+.gallery-grid img,
+.photo-gallery-grid img {
+  filter: contrast(0.97) saturate(0.94);
 }
 
 .gallery-grid img:nth-child(2) {
@@ -517,6 +608,7 @@ blockquote {
   background: var(--cream-light);
   border: 1px solid var(--line);
   border-radius: 4px;
+  box-shadow: var(--card-shadow);
 }
 
 .instagram-media {
@@ -541,9 +633,58 @@ blockquote {
   text-align: center;
 }
 
+.photo-gallery-section {
+  background: var(--cream);
+}
+
+.photo-gallery-grid {
+  columns: 3 260px;
+  column-gap: 1.1rem;
+}
+
+.photo-gallery-grid figure {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 1.1rem;
+  break-inside: avoid;
+  background: var(--cream-light);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(29, 23, 18, 0.08);
+  transition:
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.photo-gallery-grid figure:hover {
+  box-shadow: var(--card-shadow);
+  transform: translateY(-2px);
+}
+
+.photo-gallery-grid .flyer-zoom {
+  cursor: zoom-in;
+}
+
+.photo-gallery-grid img {
+  width: 100%;
+  height: auto;
+}
+
 .page-hero {
+  position: relative;
   padding: 9.5rem clamp(1.5rem, 4vw, 4rem) 4rem;
-  background: var(--tan);
+  overflow: hidden;
+  background:
+    linear-gradient(120deg, rgba(244, 241, 234, 0.94), rgba(226, 214, 196, 0.84)),
+    linear-gradient(90deg, rgba(79, 143, 152, 0.2), transparent 42%);
+}
+
+.page-hero > div {
+  position: relative;
+  max-width: 900px;
+  padding-left: clamp(1rem, 2vw, 1.5rem);
+  border-left: 6px solid var(--button-accent);
 }
 
 .page-hero h1 {
@@ -570,6 +711,139 @@ blockquote {
   padding-top: 2.75rem;
 }
 
+.about-hero {
+  background:
+    linear-gradient(120deg, rgba(244, 241, 234, 0.96), rgba(226, 214, 196, 0.58)),
+    url("../assets/images/Wings up.jpg") center 42% / cover;
+}
+
+.contact-hero {
+  background:
+    linear-gradient(90deg, rgba(244, 241, 234, 0.92), rgba(244, 241, 234, 0.82)),
+    url("../assets/images/Patio.jpg") center / cover;
+}
+
+.contact-section {
+  background: var(--cream);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: stretch;
+}
+
+.minister-card,
+.minister-quote,
+.contact-link-grid a {
+  background: var(--cream-light);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  box-shadow: 0 12px 28px rgba(29, 23, 18, 0.08);
+}
+
+.minister-card {
+  overflow: hidden;
+}
+
+.minister-card img {
+  width: 100%;
+  height: clamp(280px, 36vw, 460px);
+  object-fit: cover;
+}
+
+.minister-card > div {
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.eyebrow {
+  margin: 0 0 0.6rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.minister-card h2 {
+  margin: 0 0 1rem;
+  font-family: "Chewy", "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.minister-card p:last-child {
+  max-width: 680px;
+  margin: 0;
+  color: var(--muted);
+  font-weight: 500;
+  line-height: 1.65;
+}
+
+.minister-email {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--ink);
+  font-weight: 800;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+}
+
+.minister-quote {
+  display: grid;
+  align-items: start;
+  align-self: start;
+  padding: clamp(1.4rem, 3vw, 2.25rem);
+  background: var(--tan);
+}
+
+.minister-quote blockquote {
+  max-width: 640px;
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  line-height: 1.32;
+}
+
+.contact-options {
+  background: var(--tan);
+}
+
+.contact-link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.contact-link-grid a {
+  display: grid;
+  gap: 0.6rem;
+  min-height: 180px;
+  padding: 1.25rem;
+  text-decoration: none;
+  transition:
+    background-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.contact-link-grid a:hover {
+  background: white;
+  box-shadow: var(--card-shadow);
+  transform: translateY(-2px);
+}
+
+.contact-link-grid strong {
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.contact-link-grid span {
+  color: var(--muted);
+  font-weight: 500;
+  line-height: 1.55;
+}
+
 .calendar-section {
   background: var(--cream);
 }
@@ -592,7 +866,9 @@ blockquote {
 .rhythm-grid article {
   background: var(--cream-light);
   border: 1px solid var(--line);
+  border-top: 5px solid var(--button-accent);
   border-radius: 4px;
+  box-shadow: 0 10px 22px rgba(29, 23, 18, 0.07);
 }
 
 .rhythm-card .flyer-zoom {
@@ -604,7 +880,7 @@ blockquote {
 }
 
 .rhythm-card .flyer-zoom:hover {
-  background: rgba(29, 23, 18, 0.04);
+  background: rgba(79, 143, 152, 0.08);
 }
 
 .rhythm-card-text {
@@ -634,6 +910,11 @@ blockquote {
   gap: 1rem;
 }
 
+.calendar-month h2 {
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid rgba(79, 143, 152, 0.28);
+}
+
 .calendar-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -651,6 +932,58 @@ blockquote {
   border: 1px solid var(--line);
   border-left: 6px solid #5e7f85;
   border-radius: 4px;
+  cursor: zoom-in;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.calendar-event:hover {
+  border-color: rgba(29, 23, 18, 0.34);
+  box-shadow: 0 12px 28px rgba(29, 23, 18, 0.12);
+  transform: translateY(-1px);
+}
+
+.calendar-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0.45rem 0.8rem;
+  color: white;
+  background: var(--button-accent);
+  border: 1px solid var(--button-accent);
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 0 8px 18px rgba(41, 89, 96, 0.18);
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.calendar-download:hover {
+  background: var(--button-accent-hover);
+  border-color: var(--button-accent-hover);
+  box-shadow: 0 10px 22px rgba(41, 89, 96, 0.24);
+  transform: translateY(-1px);
+}
+
+.flyer-grid .calendar-download {
+  width: 100%;
+  margin-top: 0.75rem;
+}
+
+.calendar-event-download {
+  justify-self: start;
+  margin-top: 0.8rem;
+  cursor: pointer;
 }
 
 .calendar-event time {
@@ -658,7 +991,8 @@ blockquote {
   place-items: center;
   align-content: center;
   min-height: 86px;
-  border: 1px solid var(--ink);
+  background: white;
+  border: 1px solid rgba(29, 23, 18, 0.72);
   border-radius: 3px;
   text-align: center;
 }
@@ -670,9 +1004,9 @@ blockquote {
 }
 
 .calendar-event time strong {
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: "Chewy", "Cormorant Garamond", Georgia, serif;
   font-size: 2.7rem;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 0.9;
 }
 
@@ -691,20 +1025,20 @@ blockquote {
 }
 
 .calendar-event.meal {
-  border-left-color: #c45c32;
+  border-left-color: var(--rust);
 }
 
 .calendar-event.refuel {
-  border-left-color: #003b73;
+  border-left-color: var(--deep-blue);
 }
 
 .calendar-event.bible {
-  border-left-color: #5e9ca6;
+  border-left-color: var(--bible-blue);
 }
 
 .calendar-event.break,
 .calendar-event.cancelled {
-  border-left-color: #9f493f;
+  border-left-color: var(--break-red);
   background: #f2ebe4;
 }
 
@@ -724,6 +1058,15 @@ blockquote {
   background: var(--cream-light);
   border: 1px solid var(--line);
   border-radius: 4px;
+  box-shadow: 0 10px 22px rgba(29, 23, 18, 0.08);
+  transition:
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.flyer-grid figure:hover {
+  box-shadow: var(--card-shadow);
+  transform: translateY(-2px);
 }
 
 .flyer-grid img {
@@ -783,6 +1126,169 @@ blockquote {
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
 }
 
+.wow-launcher {
+  position: fixed;
+  right: clamp(1rem, 3vw, 1.5rem);
+  bottom: clamp(1rem, 3vw, 1.5rem);
+  z-index: 45;
+  display: grid;
+  gap: 0.1rem;
+  min-width: min(260px, calc(100vw - 2rem));
+  padding: 1rem 1.15rem;
+  color: white;
+  text-align: left;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 196, 0, 0.42), transparent 34%),
+    linear-gradient(135deg, #7d00d4, #4b008a);
+  border: 2px solid rgba(255, 255, 255, 0.68);
+  border-radius: 8px;
+  box-shadow: 0 18px 45px rgba(43, 0, 84, 0.36);
+}
+
+.wow-launcher span {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.wow-launcher strong {
+  font-size: 1.35rem;
+  line-height: 1.1;
+}
+
+.wow-dialog {
+  width: 100vw;
+  max-width: none;
+  height: 100vh;
+  max-height: none;
+  padding: 0;
+  overflow: auto;
+  color: white;
+  background:
+    radial-gradient(circle at 8% 10%, rgba(255, 196, 0, 0.34), transparent 28%),
+    radial-gradient(circle at 88% 16%, rgba(122, 217, 255, 0.28), transparent 25%),
+    linear-gradient(135deg, #350064, #7f00d8 54%, #1b0f33);
+  border: 0;
+}
+
+.wow-dialog::backdrop {
+  background: rgba(18, 10, 28, 0.62);
+  backdrop-filter: blur(10px);
+}
+
+.wow-dialog-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(320px, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(1.4rem, 4vw, 4rem);
+  width: min(calc(100% - 2rem), 1500px);
+  min-height: calc(100vh - 2rem);
+  margin: 1rem auto;
+  padding: clamp(1.25rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+.wow-dialog-close {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  min-height: 48px;
+  padding: 0;
+  color: var(--ink);
+  background: white;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 14px 35px rgba(29, 23, 18, 0.28);
+}
+
+.wow-dialog-copy {
+  display: grid;
+  gap: 1rem;
+}
+
+.wow-dialog-copy .eyebrow {
+  color: #ffda59;
+}
+
+.wow-dialog-copy h2 {
+  margin: 0;
+  font-family: "Chewy", "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 400;
+  line-height: 0.95;
+}
+
+.wow-dialog-copy p {
+  max-width: 680px;
+  margin: 0;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.wow-schedule {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0.5rem;
+}
+
+.wow-schedule article {
+  display: grid;
+  grid-template-columns: 78px minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: start;
+  padding: 0.65rem 0.75rem;
+  background: rgba(255, 255, 255, 0.11);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 6px;
+}
+
+.wow-schedule strong {
+  color: #ffda59;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+}
+
+.wow-schedule span {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.wow-schedule .calendar-download,
+.wow-calendar-all {
+  color: #142f35;
+  background: var(--button-accent-soft);
+  border-color: rgba(255, 255, 255, 0.58);
+}
+
+.wow-schedule .calendar-download:hover,
+.wow-calendar-all:hover {
+  background: var(--button-accent-soft-hover);
+}
+
+.wow-calendar-all {
+  justify-self: start;
+}
+
+.wow-dialog-art img {
+  width: 100%;
+  max-height: calc(100vh - 4rem);
+  object-fit: contain;
+  background: white;
+  border: 3px solid rgba(255, 255, 255, 0.78);
+  border-radius: 8px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+}
+
 .flyer-grid figcaption {
   margin-top: 0.6rem;
   color: var(--muted);
@@ -793,9 +1299,9 @@ blockquote {
 
 .project-card h2 {
   margin: 0 0 0.4rem;
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: "Chewy", "Cormorant Garamond", Georgia, serif;
   font-size: clamp(2rem, 3vw, 3.1rem);
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.12;
   text-wrap: balance;
 }
@@ -818,6 +1324,7 @@ blockquote {
   background: var(--cream-light);
   border: 1px solid var(--line);
   border-radius: 4px;
+  box-shadow: var(--card-shadow);
 }
 
 .feature-card {
@@ -843,15 +1350,24 @@ blockquote {
 .footer-top {
   display: grid;
   grid-template-columns: minmax(230px, 1fr) minmax(0, 1.2fr);
-  gap: 2rem;
+  gap: clamp(1.5rem, 4vw, 3rem);
   align-items: start;
-  padding-top: 3.5rem;
+  padding-top: clamp(2rem, 3vw, 3rem);
+  padding-bottom: clamp(2rem, 3vw, 3rem);
+  background:
+    linear-gradient(90deg, rgba(79, 143, 152, 0.08), transparent 45%),
+    var(--cream);
+  border-top: 1px solid rgba(29, 23, 18, 0.08);
+}
+
+.footer-brand strong {
+  font-size: clamp(1.65rem, 2.2vw, 2.15rem);
 }
 
 .footer-links {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.2rem, 3vw, 2rem);
 }
 
 .footer-links h3 {
@@ -875,10 +1391,11 @@ blockquote {
   gap: 1rem;
   width: min(calc(100% - 3rem), var(--max));
   margin: 0 auto 42px;
-  padding: 1rem clamp(1.5rem, 4vw, 4rem) 1.75rem;
+  padding: 0.85rem clamp(1.5rem, 4vw, 4rem) 1.15rem;
   color: var(--muted);
   background: var(--cream);
   box-shadow: var(--shadow);
+  flex-shrink: 0;
 }
 
 .site-footer p {
@@ -891,6 +1408,9 @@ blockquote {
     grid-template-columns: auto auto;
     width: min(calc(100% - 2rem), 1240px);
     margin-top: 18px;
+    margin-bottom: -82px;
+    top: 12px;
+    padding: 0.55rem 0.7rem;
   }
 
   .nav-toggle {
@@ -912,6 +1432,19 @@ blockquote {
     border-top: 1px solid var(--line);
   }
 
+  .site-nav a {
+    padding: 0.75rem 0.35rem;
+  }
+
+  .site-nav .mobile-nav-action {
+    display: block;
+    margin-top: 0.35rem;
+    color: white;
+    background: var(--button-accent);
+    border: 1px solid var(--button-accent);
+    text-align: center;
+  }
+
   .site-nav.is-open {
     display: flex;
   }
@@ -923,6 +1456,7 @@ blockquote {
 
   .hero-content,
   .about-grid,
+  .contact-grid,
   .feature-card,
   .footer-top {
     grid-template-columns: 1fr;
@@ -934,6 +1468,7 @@ blockquote {
 
   .event-preview-grid,
   .project-grid,
+  .contact-link-grid,
   .calendar-list {
     grid-template-columns: 1fr;
   }
@@ -950,23 +1485,90 @@ blockquote {
   .gallery-grid img:nth-child(6) {
     grid-column: auto;
   }
+
+  .event-tile .flyer-zoom {
+    height: 280px;
+  }
+
+  .feature-card img {
+    height: clamp(250px, 52vw, 420px);
+  }
+
+  .footer-brand {
+    align-items: flex-start;
+  }
+
+  .wow-dialog-panel {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .wow-dialog-art {
+    order: -1;
+    padding-top: 3rem;
+  }
 }
 
 @media (max-width: 620px) {
   .site-header {
-    margin-bottom: -86px;
+    width: calc(100% - 1rem);
+    margin-bottom: -76px;
+  }
+
+  .brand {
+    gap: 0.55rem;
+  }
+
+  .brand-logo {
+    width: 36px;
+    height: 36px;
   }
 
   .brand strong {
-    font-size: 1.35rem;
+    font-size: clamp(1.18rem, 7vw, 1.45rem);
   }
 
   .hero {
-    min-height: 680px;
+    min-height: 620px;
   }
 
   .hero-content {
-    padding-inline: 1rem;
+    max-width: none;
+    padding: 17rem 1rem 2.75rem;
+  }
+
+  .hero-content::before {
+    inset: 15.5rem -0.5rem 1.2rem -0.5rem;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2.15rem, 12vw, 3.15rem);
+  }
+
+  .hero-content p {
+    font-size: 0.98rem;
+  }
+
+  .hero-actions {
+    margin-top: 1.4rem;
+  }
+
+  .button.primary {
+    width: 100%;
+  }
+
+  .page-hero {
+    padding: 7.5rem 1rem 2.5rem;
+  }
+
+  .page-hero h1,
+  .section h2 {
+    font-size: clamp(2.35rem, 13vw, 3.4rem);
+  }
+
+  .section-heading {
+    display: grid;
+    align-items: start;
   }
 
   .about-photos,
@@ -977,15 +1579,132 @@ blockquote {
     grid-template-columns: 1fr;
   }
 
+  .event-preview-grid {
+    gap: 1rem;
+  }
+
+  .event-tile .flyer-zoom {
+    height: 240px;
+  }
+
+  .event-meta {
+    grid-template-columns: auto minmax(48px, auto) minmax(0, 1fr);
+  }
+
+  .instagram-embed-card {
+    min-height: 360px;
+  }
+
+  .gallery-grid {
+    grid-auto-rows: 220px;
+  }
+
+  .photo-gallery-grid {
+    columns: 1;
+  }
+
+  .minister-card img {
+    height: auto;
+  }
+
+  .minister-quote blockquote {
+    font-size: clamp(1.2rem, 7vw, 1.6rem);
+  }
+
+  .contact-link-grid a {
+    min-height: 0;
+  }
+
   .calendar-event {
-    grid-template-columns: 68px minmax(0, 1fr);
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 0.7rem;
+  }
+
+  .calendar-event time {
+    min-height: 76px;
+  }
+
+  .calendar-event time strong {
+    font-size: 2.2rem;
+  }
+
+  .calendar-event h3 {
+    font-size: 0.98rem;
+  }
+
+  .calendar-event p {
+    font-size: 0.86rem;
+  }
+
+  .calendar-download {
+    width: 100%;
   }
 
   .section {
     padding-inline: 1rem;
   }
 
+  .footer-top {
+    padding-block: 1.6rem;
+  }
+
+  .footer-brand strong {
+    font-size: 1.55rem;
+  }
+
   .site-footer {
     flex-direction: column;
+  }
+
+  .wow-launcher {
+    right: 0.75rem;
+    bottom: 0.75rem;
+    min-width: 0;
+    max-width: calc(100vw - 1.5rem);
+    padding: 0.85rem 1rem;
+  }
+
+  .wow-launcher strong {
+    font-size: 1.08rem;
+  }
+
+  .wow-dialog-panel {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 1rem 1rem 1.5rem;
+  }
+
+  .wow-dialog-copy h2 {
+    font-size: clamp(2.5rem, 15vw, 3.6rem);
+  }
+
+  .wow-dialog-copy p {
+    font-size: 0.95rem;
+  }
+
+  .wow-schedule article {
+    grid-template-columns: 1fr;
+  }
+
+  .wow-dialog-close {
+    width: 42px;
+    min-height: 42px;
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .brand strong {
+    font-size: 1.08rem;
+  }
+
+  .calendar-event {
+    grid-template-columns: 1fr;
+  }
+
+  .calendar-event time {
+    width: 84px;
   }
 }

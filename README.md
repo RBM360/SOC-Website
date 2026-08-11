@@ -1,19 +1,23 @@
-# SOC Student Ministry Website
+# SOC Campus Ministry Website
 
-A simple static scaffold for SOC Student Ministry, a collegiate Christian ministry at Tennessee Tech connected with Sycamore Church of Christ.
+A simple static site for SOC Campus Ministry, a Christian campus ministry at Tennessee Tech connected with Sycamore Church of Christ.
 
 ## Pages
 
-- `index.html`: Home page with hero, welcome sections, and a short activities preview.
-- `activities.html`: Upcoming activities and flyer placeholders.
-- `excursions.html`: Retreats, field trips, camps, and other off-campus memories.
-- `projects.html`: Redirects to `excursions.html` so old links do not break.
+- `index.html`: Home page with hero, upcoming events, Instagram, and gallery sections.
+- `activities.html`: Fall semester calendar and activity posters.
+- `trips.html`: Retreats, field trips, camps, and other off-campus memories.
+- `gallery.html`: Full photo collection from SOC photos and trips.
+- `about.html`: Ministry background, mission copy, and SOC poster.
+- `contact.html`: Campus minister introduction and links for getting connected.
+- `excursions.html`: Redirects to `trips.html` so old links do not break.
+- `projects.html`: Redirects to `trips.html` so old links do not break.
 
 ## Assets
 
 - Put homepage photos in `assets/images`.
 - Put upcoming activity flyers in `assets/flyers`.
-- Put retreat, camp, and field trip photos in `assets/Excursions`.
+- Put retreat, camp, and field trip photos in `assets/Trips`.
 - The club logo is `assets/Logo.jpg`.
 
 ## Preview
