@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//SOC Campus Ministry//SOC Website//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Halloween Party
+X-WR-TIMEZONE:America/Chicago
+BEGIN:VEVENT
+UID:halloween-party-2026-10-30-0@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Halloween Party
+DTSTART;TZID=America/Chicago:20261030T190000
+DTEND;TZID=America/Chicago:20261030T210000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Friday night Halloween party. From the SOC Campus Ministry se
+ mester schedule.
+END:VEVENT
+END:VCALENDAR

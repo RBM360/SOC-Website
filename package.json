@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "build": "npm run validate",
+    "calendars": "node scripts/write-calendar-files.mjs",
     "dev": "node scripts/dev-server.mjs",
     "start": "npm run dev",
-    "validate": "node scripts/validate-site.mjs"
+    "validate": "npm run calendars && node scripts/validate-site.mjs"
   }
 }

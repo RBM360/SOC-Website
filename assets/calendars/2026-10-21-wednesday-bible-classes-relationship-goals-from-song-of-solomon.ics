@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//SOC Campus Ministry//SOC Website//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Wednesday Bible Classes: Relationship Goals from Song of Sol
+ omon
+X-WR-TIMEZONE:America/Chicago
+BEGIN:VEVENT
+UID:wednesday-bible-classes-relationship-goals-from-song-of-solomon-2026-
+ 10-21-0@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Wednesday Bible Classes: Relationship Goals from Song of Solomon
+DTSTART;TZID=America/Chicago:20261021T183000
+DTEND;TZID=America/Chicago:20261021T193000
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:Series runs October 21-November 18. From the SOC Campus Minis
+ try semester schedule.
+END:VEVENT
+END:VCALENDAR

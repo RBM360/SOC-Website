@@ -194,6 +194,91 @@ function slugifyFileName(text) {
   return text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") || "soc-event";
 }
 
+function calendarFileNameForEvent(event) {
+  return `${event.date}-${slugifyFileName(event.title)}.ics`;
+}
+
+function staticCalendarPath(fileName) {
+  return `assets/calendars/${fileName}`;
+}
+
+function openStaticCalendar(fileName) {
+  window.location.href = staticCalendarPath(fileName);
+}
+
+function httpsCalendarUrl(fileName) {
+  return new URL(staticCalendarPath(fileName), window.location.href).href;
+}
+
+function webcalCalendarUrl(fileName) {
+  return httpsCalendarUrl(fileName).replace(/^https?:/, "webcal:");
+}
+
+function googleCalendarSubscribeUrl(fileName) {
+  return `https://calendar.google.com/calendar/render?cid=${encodeURIComponent(webcalCalendarUrl(fileName))}`;
+}
+
+function outlookCalendarSubscribeUrl(fileName, calendarName) {
+  const params = new URLSearchParams({
+    url: httpsCalendarUrl(fileName),
+    name: calendarName
+  });
+  return `https://outlook.live.com/calendar/0/addcalendar?${params.toString()}`;
+}
+
+function getCalendarSubscribeDialog() {
+  let dialog = document.querySelector("#calendar-subscribe-dialog");
+
+  if (dialog) {
+    return dialog;
+  }
+
+  dialog = document.createElement("dialog");
+  dialog.id = "calendar-subscribe-dialog";
+  dialog.className = "subscribe-dialog";
+  dialog.innerHTML = `
+    <div class="subscribe-dialog-panel">
+      <button class="subscribe-dialog-close" type="button" aria-label="Close calendar subscribe options">×</button>
+      <h2 data-subscribe-title>Subscribe to the calendar</h2>
+      <p>
+        Pick your calendar app. New and updated events on the website will
+        automatically show up once you subscribe.
+      </p>
+      <div class="subscribe-options">
+        <a class="calendar-download" data-subscribe-apple href="#">Apple Calendar</a>
+        <a class="calendar-download" data-subscribe-google href="#" target="_blank" rel="noopener noreferrer">Google Calendar</a>
+        <a class="calendar-download" data-subscribe-outlook href="#" target="_blank" rel="noopener noreferrer">Outlook</a>
+        <a class="calendar-download" data-subscribe-download href="#">Download .ics file</a>
+      </div>
+    </div>
+  `;
+  document.body.append(dialog);
+
+  dialog.querySelector(".subscribe-dialog-close").addEventListener("click", () => closeDialog(dialog));
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) {
+      closeDialog(dialog);
+    }
+  });
+
+  return dialog;
+}
+
+function openCalendarSubscribeDialog(fileName, calendarName) {
+  const dialog = getCalendarSubscribeDialog();
+
+  dialog.querySelector("[data-subscribe-title]").textContent = `Subscribe to ${calendarName}`;
+  dialog.querySelector("[data-subscribe-apple]").href = webcalCalendarUrl(fileName);
+  dialog.querySelector("[data-subscribe-google]").href = googleCalendarSubscribeUrl(fileName);
+  dialog.querySelector("[data-subscribe-outlook]").href = outlookCalendarSubscribeUrl(fileName, calendarName);
+
+  const downloadLink = dialog.querySelector("[data-subscribe-download]");
+  downloadLink.href = httpsCalendarUrl(fileName);
+  downloadLink.download = `${slugifyFileName(calendarName)}.ics`;
+
+  openDialog(dialog);
+}
+
 function buildCalendarEvent(event, index = 0) {
   const timestamp = new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
   const uid = `${slugifyFileName(event.title)}-${event.date}-${index}@soc-tennessee-tech`;
@@ -202,18 +287,27 @@ function buildCalendarEvent(event, index = 0) {
         `DTSTART;VALUE=DATE:${formatCalendarDate(event.date)}`,
         `DTEND;VALUE=DATE:${getNextCalendarDate(event.endDate || event.date)}`
       ]
-    : [`DTSTART:${formatCalendarDate(event.date, event.startTime)}`, `DTEND:${formatCalendarDate(event.date, event.endTime)}`];
+    : [
+        `DTSTART;TZID=America/Chicago:${formatCalendarDate(event.date, event.startTime)}`,
+        `DTEND;TZID=America/Chicago:${formatCalendarDate(event.date, event.endTime)}`
+      ];
 
   return [
     "BEGIN:VEVENT",
     `UID:${uid}`,
     `DTSTAMP:${timestamp}`,
+    `LAST-MODIFIED:${timestamp}`,
+    "SEQUENCE:0",
     `SUMMARY:${escapeCalendarText(event.title)}`,
     ...dateLines,
     `LOCATION:${escapeCalendarText(event.location)}`,
     `DESCRIPTION:${escapeCalendarText(event.description || "SOC Campus Ministry event.")}`,
     "END:VEVENT"
   ].join("\r\n");
+}
+
+function shouldOpenCalendarFileDirectly() {
+  return /android|ipad|iphone|ipod/i.test(navigator.userAgent || "");
 }
 
 function downloadCalendar(events, fileName) {
@@ -227,11 +321,20 @@ function downloadCalendar(events, fileName) {
     "PRODID:-//SOC Campus Ministry//SOC Website//EN",
     "CALSCALE:GREGORIAN",
     "METHOD:PUBLISH",
+    `X-WR-CALNAME:${escapeCalendarText(fileName)}`,
+    "X-WR-TIMEZONE:America/Chicago",
     ...events.map(buildCalendarEvent),
     "END:VCALENDAR"
   ].join("\r\n");
   const blob = new Blob([calendarBody], { type: "text/calendar;charset=utf-8" });
   const objectUrl = URL.createObjectURL(blob);
+
+  if (shouldOpenCalendarFileDirectly()) {
+    window.setTimeout(() => URL.revokeObjectURL(objectUrl), 60000);
+    window.location.href = objectUrl;
+    return;
+  }
+
   const link = document.createElement("a");
   link.href = objectUrl;
   link.download = `${slugifyFileName(fileName)}.ics`;
@@ -290,7 +393,7 @@ function getWeekOfWelcomeDialog() {
           students spend quality time together and play interactive games designed
           to help friendships form quickly.
         </p>
-        <button class="calendar-download wow-calendar-all" type="button" data-wow-calendar-all>Add all Week of Welcome dates</button>
+        <button class="calendar-download wow-calendar-all" type="button" data-wow-calendar-all>Open Week of Welcome calendar</button>
         <div class="wow-schedule" aria-label="Week of Welcome itinerary">
           <article><strong>Aug 13</strong><span>Move-in Day, 7 PM walk to Ralph's Donuts</span><button class="calendar-download" type="button" data-wow-calendar-date="2026-08-13">Add date</button></article>
           <article><strong>Aug 14</strong><span>6 PM SOC Open House with pizza and games</span><button class="calendar-download" type="button" data-wow-calendar-date="2026-08-14">Add date</button></article>
@@ -312,10 +415,15 @@ function getWeekOfWelcomeDialog() {
 
   dialog.querySelector(".wow-dialog-close").addEventListener("click", () => closeDialog(dialog));
   dialog.querySelector("[data-wow-calendar-all]").addEventListener("click", () => {
-    downloadCalendar(weekOfWelcomeEvents, "SOC Week of Welcome 2026");
+    openCalendarSubscribeDialog("soc-week-of-welcome-2026.ics", "SOC Week of Welcome 2026");
   });
   dialog.querySelectorAll("[data-wow-calendar-date]").forEach((button) => {
     button.addEventListener("click", () => {
+      if (shouldOpenCalendarFileDirectly()) {
+        openStaticCalendar(`soc-week-of-welcome-2026-${button.dataset.wowCalendarDate}.ics`);
+        return;
+      }
+
       const events = eventsForDate(weekOfWelcomeEvents, button.dataset.wowCalendarDate);
       downloadCalendar(events, `SOC Week of Welcome ${button.dataset.wowCalendarDate}`);
     });
@@ -643,7 +751,7 @@ document.querySelectorAll("[data-calendar-group]").forEach((button) => {
 
 document.querySelectorAll("[data-calendar-all]").forEach((button) => {
   button.addEventListener("click", () => {
-    downloadCalendar(allCalendarEventsFromPage(), "SOC Fall Semester Calendar 2026");
+    openCalendarSubscribeDialog("soc-fall-semester-calendar-2026.ics", "SOC Fall Semester Calendar 2026");
   });
 });
 
@@ -759,6 +867,76 @@ function openCalendarFlyer(calendarEvent) {
   openDialog(dialog);
 }
 
+function localDateFromIso(date) {
+  const [year, month, day] = date.split("-").map(Number);
+  return new Date(year, month - 1, day);
+}
+
+function isPastCalendarEvent(calendarEvent, today = new Date()) {
+  const eventDate = calendarEvent.dataset.endDate || calendarEvent.querySelector("time")?.getAttribute("datetime");
+
+  if (!eventDate) {
+    return false;
+  }
+
+  const eventEnd = localDateFromIso(eventDate);
+  const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  return eventEnd < todayStart;
+}
+
+function movePastCalendarEvents() {
+  const calendar = document.querySelector(".semester-calendar");
+
+  if (!calendar) {
+    return;
+  }
+
+  const pastEvents = Array.from(calendar.querySelectorAll(".calendar-event")).filter((calendarEvent) => isPastCalendarEvent(calendarEvent));
+
+  if (!pastEvents.length) {
+    return;
+  }
+
+  const pastEventsPanel = document.createElement("details");
+  pastEventsPanel.className = "past-events";
+  pastEventsPanel.innerHTML = `
+    <summary>
+      <span>Past Events</span>
+      <small>${pastEvents.length} previous ${pastEvents.length === 1 ? "event" : "events"}</small>
+    </summary>
+    <div class="past-events-groups"></div>
+  `;
+
+  const groupsContainer = pastEventsPanel.querySelector(".past-events-groups");
+  const pastGroups = new Map();
+
+  pastEvents.forEach((calendarEvent) => {
+    const month = calendarEvent.closest(".calendar-month");
+    const monthName = month?.querySelector("h2")?.textContent || "Past Events";
+
+    if (!pastGroups.has(monthName)) {
+      const group = document.createElement("section");
+      group.className = "past-events-month";
+      group.innerHTML = `<h3>${monthName}</h3><div class="past-events-list"></div>`;
+      pastGroups.set(monthName, group);
+      groupsContainer.append(group);
+    }
+
+    calendarEvent.classList.add("is-past");
+    pastGroups.get(monthName).querySelector(".past-events-list").append(calendarEvent);
+  });
+
+  calendar.prepend(pastEventsPanel);
+
+  calendar.querySelectorAll(".calendar-month").forEach((month) => {
+    if (!month.querySelector(".calendar-list .calendar-event")) {
+      month.hidden = true;
+    }
+  });
+}
+
+movePastCalendarEvents();
+
 document.querySelectorAll(".calendar-event").forEach((calendarEvent) => {
   const flyer = getCalendarFlyer(calendarEvent);
   const calendarEventDetails = calendarEventFromCard(calendarEvent);
@@ -791,6 +969,12 @@ document.querySelectorAll(".calendar-event").forEach((calendarEvent) => {
     addButton.setAttribute("aria-label", `Add ${eventTitle} to calendar`);
     addButton.addEventListener("click", (event) => {
       event.stopPropagation();
+
+      if (shouldOpenCalendarFileDirectly()) {
+        openStaticCalendar(calendarFileNameForEvent(calendarEventDetails));
+        return;
+      }
+
       downloadCalendar([calendarEventDetails], `SOC ${eventTitle}`);
     });
     addButton.addEventListener("keydown", (event) => {

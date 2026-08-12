@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//SOC Campus Ministry//SOC Website//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Sunday Bible Class: How to Study
+X-WR-TIMEZONE:America/Chicago
+BEGIN:VEVENT
+UID:sunday-bible-class-how-to-study-2026-12-06-0@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Sunday Bible Class: How to Study
+DTSTART;TZID=America/Chicago:20261206T101500
+DTEND;TZID=America/Chicago:20261206T110000
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:Series runs December 6-27. From the SOC Campus Ministry semes
+ ter schedule.
+END:VEVENT
+END:VCALENDAR

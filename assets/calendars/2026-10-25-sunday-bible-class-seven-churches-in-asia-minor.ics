@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//SOC Campus Ministry//SOC Website//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Sunday Bible Class: Seven Churches in Asia Minor
+X-WR-TIMEZONE:America/Chicago
+BEGIN:VEVENT
+UID:sunday-bible-class-seven-churches-in-asia-minor-2026-10-25-0@soc-tenn
+ essee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Sunday Bible Class: Seven Churches in Asia Minor
+DTSTART;TZID=America/Chicago:20261025T101500
+DTEND;TZID=America/Chicago:20261025T110000
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:Series runs October 25-November 22. From the SOC Campus Minis
+ try semester schedule.
+END:VEVENT
+END:VCALENDAR

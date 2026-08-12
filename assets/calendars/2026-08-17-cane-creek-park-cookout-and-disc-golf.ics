@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//SOC Campus Ministry//SOC Website//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Cane Creek Park Cookout and Disc Golf
+X-WR-TIMEZONE:America/Chicago
+BEGIN:VEVENT
+UID:cane-creek-park-cookout-and-disc-golf-2026-08-17-0@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Cane Creek Park Cookout and Disc Golf
+DTSTART;TZID=America/Chicago:20260817T170000
+DTEND;TZID=America/Chicago:20260817T190000
+LOCATION:Cane Creek Park\, Cookeville\, TN
+DESCRIPTION:Week of Welcome cookout and disc golf.
+END:VEVENT
+END:VCALENDAR

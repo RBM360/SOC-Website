@@ -1,0 +1,783 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//SOC Campus Ministry//SOC Website//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:SOC Fall Semester Calendar 2026
+X-WR-TIMEZONE:America/Chicago
+BEGIN:VEVENT
+UID:walk-to-ralph-s-donuts-2026-08-13-0@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Walk to Ralph's Donuts
+DTSTART;TZID=America/Chicago:20260813T190000
+DTEND;TZID=America/Chicago:20260813T200000
+LOCATION:Ralph's Donut Shop\, Cookeville\, TN
+DESCRIPTION:Week of Welcome\, 7:00 PM. From the SOC Campus Ministry semes
+ ter schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:soc-open-house-2026-08-14-1@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:SOC Open House
+DTSTART;TZID=America/Chicago:20260814T180000
+DTEND;TZID=America/Chicago:20260814T200000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Pizza and games at the SOC House\, 6:00 PM. From the SOC Camp
+ us Ministry semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:volleyball-and-dirty-sodas-2026-08-15-2@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Volleyball and Dirty Sodas
+DTSTART;TZID=America/Chicago:20260815T190000
+DTEND;TZID=America/Chicago:20260815T210000
+LOCATION:Sycamore Church Gym\, 1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:Sycamore Church Gym\, 7:00 PM. From the SOC Campus Ministry s
+ emester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:sunday-bible-class-a-new-beginning-2026-08-16-3@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Sunday Bible Class: A New Beginning
+DTSTART;TZID=America/Chicago:20260816T101500
+DTEND;TZID=America/Chicago:20260816T110000
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:Worship at 9:00 AM and 5:00 PM\; Bible class at 10:15 AM. Fro
+ m the SOC Campus Ministry semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:campbellball-2026-08-18-4@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Campbellball
+DTSTART;TZID=America/Chicago:20260818T180000
+DTEND;TZID=America/Chicago:20260818T200000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Week of Welcome\, 6:00 PM. From the SOC Campus Ministry semes
+ ter schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:wednesday-bible-classes-welcome-back-2026-08-19-5@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Wednesday Bible Classes: Welcome Back
+DTSTART;TZID=America/Chicago:20260819T183000
+DTEND;TZID=America/Chicago:20260819T193000
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:Wednesday Bible Classes. From the SOC Campus Ministry semeste
+ r schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:ttu-soccer-game-2026-08-20-6@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:TTU Soccer Game
+DTSTART;TZID=America/Chicago:20260820T190000
+DTEND;TZID=America/Chicago:20260820T210000
+LOCATION:Tennessee Tech campus
+DESCRIPTION:Week of Welcome soccer night\, 7:00 PM. From the SOC Campus M
+ inistry semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:fresh-getaway-2026-08-21-7@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Fresh Getaway
+DTSTART;TZID=America/Chicago:20260821T180000
+DTEND;TZID=America/Chicago:20260821T230000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Week of Welcome\, 6:00 PM. From the SOC Campus Ministry semes
+ ter schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:devo-and-nerf-wars-2026-08-24-8@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Devo and Nerf Wars
+DTSTART;TZID=America/Chicago:20260824T190000
+DTEND;TZID=America/Chicago:20260824T210000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Refuel Monday Fellowship\, 7:00 PM. From the SOC Campus Minis
+ try semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:mexican-lunch-2026-08-25-9@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Mexican Lunch
+DTSTART;TZID=America/Chicago:20260825T110000
+DTEND;TZID=America/Chicago:20260825T130000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Tuesday Lunch\, 11:00 AM-1:00 PM. From the SOC Campus Ministr
+ y semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:wednesday-bible-classes-just-getting-started-2026-08-26-10@soc-tennes
+ see-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Wednesday Bible Classes: Just Getting Started
+DTSTART;TZID=America/Chicago:20260826T183000
+DTEND;TZID=America/Chicago:20260826T193000
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:Wednesday Bible Classes. From the SOC Campus Ministry semeste
+ r schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:ttu-football-game-2026-08-29-11@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:TTU Football Game
+DTSTART;VALUE=DATE:20260829
+DTEND;VALUE=DATE:20260830
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Golden Eagle game day. From the SOC Campus Ministry semester 
+ schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:sunday-bible-class-broken-promises-2026-08-30-12@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Sunday Bible Class: Broken Promises
+DTSTART;TZID=America/Chicago:20260830T101500
+DTEND;TZID=America/Chicago:20260830T110000
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:Worship at 9:00 AM and 5:00 PM\; Bible class at 10:15 AM. Fro
+ m the SOC Campus Ministry semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:devo-and-camp-games-2026-08-31-13@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Devo and Camp Games
+DTSTART;TZID=America/Chicago:20260831T190000
+DTEND;TZID=America/Chicago:20260831T210000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Refuel Monday Fellowship\, 7:00 PM. From the SOC Campus Minis
+ try semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:bbq-lunch-2026-09-01-14@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:BBQ Lunch
+DTSTART;TZID=America/Chicago:20260901T110000
+DTEND;TZID=America/Chicago:20260901T130000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Tuesday Lunch\, 11:00 AM-1:00 PM. From the SOC Campus Ministr
+ y semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:singing-after-class-2026-09-02-15@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Singing After Class
+DTSTART;TZID=America/Chicago:20260902T194500
+DTEND;TZID=America/Chicago:20260902T201500
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:7:45-8:15 PM after Wednesday Bible class. From the SOC Campus
+  Ministry semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:wednesday-bible-classes-enemies-of-the-heart-2026-09-02-16@soc-tennes
+ see-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Wednesday Bible Classes: Enemies of the Heart
+DTSTART;TZID=America/Chicago:20260902T183000
+DTEND;TZID=America/Chicago:20260902T193000
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:Series runs September 2-30. From the SOC Campus Ministry seme
+ ster schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:sunday-bible-class-labor-day-2026-09-06-17@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Sunday Bible Class: Labor Day
+DTSTART;TZID=America/Chicago:20260906T101500
+DTEND;TZID=America/Chicago:20260906T110000
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:Worship at 9:00 AM and 5:00 PM\; Bible class at 10:15 AM. Fro
+ m the SOC Campus Ministry semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:italian-lunch-2026-09-08-18@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Italian Lunch
+DTSTART;TZID=America/Chicago:20260908T110000
+DTEND;TZID=America/Chicago:20260908T130000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Tuesday Lunch\, 11:00 AM-1:00 PM. From the SOC Campus Ministr
+ y semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:bible-bowl-2026-09-12-19@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Bible Bowl
+DTSTART;VALUE=DATE:20260912
+DTEND;VALUE=DATE:20260913
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Saturday Bible Bowl event. From the SOC Campus Ministry semes
+ ter schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:sunday-bible-class-wisdom-books-2026-09-13-20@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Sunday Bible Class: Wisdom Books
+DTSTART;TZID=America/Chicago:20260913T101500
+DTEND;TZID=America/Chicago:20260913T110000
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:Series runs September 13-27. From the SOC Campus Ministry sem
+ ester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:road-trip-in-n-out-burger-lebanon-2026-09-14-21@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Road Trip: In-N-Out Burger Lebanon
+DTSTART;TZID=America/Chicago:20260914T190000
+DTEND;TZID=America/Chicago:20260914T210000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Refuel Monday Fellowship\, 7:00 PM. From the SOC Campus Minis
+ try semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:breakfast-lunch-2026-09-15-22@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Breakfast Lunch
+DTSTART;TZID=America/Chicago:20260915T110000
+DTEND;TZID=America/Chicago:20260915T130000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Tuesday Lunch\, 11:00 AM-1:00 PM. From the SOC Campus Ministr
+ y semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:singing-after-class-2026-09-16-23@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Singing After Class
+DTSTART;TZID=America/Chicago:20260916T194500
+DTEND;TZID=America/Chicago:20260916T201500
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:7:45-8:15 PM after Wednesday Bible class. From the SOC Campus
+  Ministry semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:sycamore-odyssey-house-2026-09-19-24@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Sycamore Odyssey House
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Saturday congregation event. From the SOC Campus Ministry sem
+ ester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:group-discussion-breakouts-2026-09-21-25@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Group Discussion Breakouts
+DTSTART;TZID=America/Chicago:20260921T190000
+DTEND;TZID=America/Chicago:20260921T210000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Refuel Monday Fellowship\, 7:00 PM. From the SOC Campus Minis
+ try semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:chicken-and-sides-lunch-2026-09-22-26@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Chicken and Sides Lunch
+DTSTART;TZID=America/Chicago:20260922T110000
+DTEND;TZID=America/Chicago:20260922T130000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Tuesday Lunch\, 11:00 AM-1:00 PM. From the SOC Campus Ministr
+ y semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:connections-2026-09-27-27@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Connections
+DTSTART;TZID=America/Chicago:20260927T180000
+DTEND;TZID=America/Chicago:20260927T190000
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:After Sunday PM service. From the SOC Campus Ministry semeste
+ r schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:the-cross-and-chick-fil-a-2026-09-28-28@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:The Cross and Chick-fil-A
+DTSTART;TZID=America/Chicago:20260928T190000
+DTEND;TZID=America/Chicago:20260928T210000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Refuel Monday Fellowship\, 7:00 PM. From the SOC Campus Minis
+ try semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:mexican-lunch-2026-09-29-29@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Mexican Lunch
+DTSTART;TZID=America/Chicago:20260929T110000
+DTEND;TZID=America/Chicago:20260929T130000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Tuesday Lunch\, 11:00 AM-1:00 PM. From the SOC Campus Ministr
+ y semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:singing-after-class-2026-09-30-30@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Singing After Class
+DTSTART;TZID=America/Chicago:20260930T194500
+DTEND;TZID=America/Chicago:20260930T201500
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:7:45-8:15 PM after Wednesday Bible class. From the SOC Campus
+  Ministry semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:fall-retreat-2026-10-02-31@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Fall Retreat
+DTSTART;VALUE=DATE:20261002
+DTEND;VALUE=DATE:20261004
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Fall Retreat weekend. From the SOC Campus Ministry semester s
+ chedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:sunday-bible-class-fall-retreat-2026-10-04-32@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Sunday Bible Class: Fall Retreat
+DTSTART;TZID=America/Chicago:20261004T101500
+DTEND;TZID=America/Chicago:20261004T110000
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:Worship at 9:00 AM and 5:00 PM\; Bible class at 10:15 AM. Fro
+ m the SOC Campus Ministry semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:devo-and-speed-friending-2026-10-05-33@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Devo and Speed-Friending
+DTSTART;TZID=America/Chicago:20261005T190000
+DTEND;TZID=America/Chicago:20261005T210000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Refuel Monday Fellowship\, 7:00 PM. From the SOC Campus Minis
+ try semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:italian-lunch-2026-10-06-34@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Italian Lunch
+DTSTART;TZID=America/Chicago:20261006T110000
+DTEND;TZID=America/Chicago:20261006T130000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Tuesday Lunch\, 11:00 AM-1:00 PM. From the SOC Campus Ministr
+ y semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:wednesday-bible-classes-fruit-of-our-lips-2026-10-07-35@soc-tennessee
+ -tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Wednesday Bible Classes: Fruit of Our Lips
+DTSTART;TZID=America/Chicago:20261007T183000
+DTEND;TZID=America/Chicago:20261007T193000
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:Wednesday Bible Classes. From the SOC Campus Ministry semeste
+ r schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:sunday-bible-class-middle-of-nowhere-2026-10-11-36@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Sunday Bible Class: Middle of Nowhere
+DTSTART;TZID=America/Chicago:20261011T101500
+DTEND;TZID=America/Chicago:20261011T110000
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:Worship at 9:00 AM and 5:00 PM\; Bible class at 10:15 AM. Fro
+ m the SOC Campus Ministry semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:devo-and-battleship-2026-10-12-37@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Devo and Battleship
+DTSTART;TZID=America/Chicago:20261012T190000
+DTEND;TZID=America/Chicago:20261012T210000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Refuel Monday Fellowship\, 7:00 PM. From the SOC Campus Minis
+ try semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:breakfast-lunch-2026-10-13-38@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Breakfast Lunch
+DTSTART;TZID=America/Chicago:20261013T110000
+DTEND;TZID=America/Chicago:20261013T130000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Tuesday Lunch\, 11:00 AM-1:00 PM. From the SOC Campus Ministr
+ y semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:guys-cornhole-girls-2026-10-19-39@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Guys Cornhole Girls
+DTSTART;TZID=America/Chicago:20261019T190000
+DTEND;TZID=America/Chicago:20261019T210000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Refuel Monday Fellowship\, 7:00 PM. From the SOC Campus Minis
+ try semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:chicken-and-sides-lunch-2026-10-20-40@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Chicken and Sides Lunch
+DTSTART;TZID=America/Chicago:20261020T110000
+DTEND;TZID=America/Chicago:20261020T130000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Tuesday Lunch\, 11:00 AM-1:00 PM. From the SOC Campus Ministr
+ y semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:wednesday-bible-classes-relationship-goals-from-song-of-solomon-2026-
+ 10-21-41@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Wednesday Bible Classes: Relationship Goals from Song of Solomon
+DTSTART;TZID=America/Chicago:20261021T183000
+DTEND;TZID=America/Chicago:20261021T193000
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:Series runs October 21-November 18. From the SOC Campus Minis
+ try semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:connections-2026-10-25-42@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Connections
+DTSTART;TZID=America/Chicago:20261025T180000
+DTEND;TZID=America/Chicago:20261025T190000
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:After Sunday PM service. From the SOC Campus Ministry semeste
+ r schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:sunday-bible-class-seven-churches-in-asia-minor-2026-10-25-43@soc-ten
+ nessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Sunday Bible Class: Seven Churches in Asia Minor
+DTSTART;TZID=America/Chicago:20261025T101500
+DTEND;TZID=America/Chicago:20261025T110000
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:Series runs October 25-November 22. From the SOC Campus Minis
+ try semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:mentoring-how-to-adult-night-2026-10-26-44@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Mentoring “How to Adult” Night
+DTSTART;TZID=America/Chicago:20261026T190000
+DTEND;TZID=America/Chicago:20261026T210000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Refuel Monday Fellowship\, 7:00 PM. From the SOC Campus Minis
+ try semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:bbq-lunch-2026-10-27-45@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:BBQ Lunch
+DTSTART;TZID=America/Chicago:20261027T110000
+DTEND;TZID=America/Chicago:20261027T130000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Tuesday Lunch\, 11:00 AM-1:00 PM. From the SOC Campus Ministr
+ y semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:singing-after-class-2026-10-28-46@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Singing After Class
+DTSTART;TZID=America/Chicago:20261028T194500
+DTEND;TZID=America/Chicago:20261028T201500
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:7:45-8:15 PM after Wednesday Bible class. From the SOC Campus
+  Ministry semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:halloween-party-2026-10-30-47@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Halloween Party
+DTSTART;TZID=America/Chicago:20261030T190000
+DTEND;TZID=America/Chicago:20261030T210000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Friday night Halloween party. From the SOC Campus Ministry se
+ mester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:group-discussion-breakouts-2026-11-02-48@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Group Discussion Breakouts
+DTSTART;TZID=America/Chicago:20261102T190000
+DTEND;TZID=America/Chicago:20261102T210000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Refuel Monday Fellowship\, 7:00 PM. From the SOC Campus Minis
+ try semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:commercial-night-2026-11-09-49@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Commercial Night
+DTSTART;TZID=America/Chicago:20261109T190000
+DTEND;TZID=America/Chicago:20261109T210000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Refuel Monday Fellowship\, 7:00 PM. From the SOC Campus Minis
+ try semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:mexican-lunch-2026-11-10-50@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Mexican Lunch
+DTSTART;TZID=America/Chicago:20261110T110000
+DTEND;TZID=America/Chicago:20261110T130000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Tuesday Lunch\, 11:00 AM-1:00 PM. From the SOC Campus Ministr
+ y semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:singing-after-class-2026-11-11-51@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Singing After Class
+DTSTART;TZID=America/Chicago:20261111T194500
+DTEND;TZID=America/Chicago:20261111T201500
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:7:45-8:15 PM after Wednesday Bible class. From the SOC Campus
+  Ministry semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:connections-2026-11-15-52@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Connections
+DTSTART;TZID=America/Chicago:20261115T180000
+DTEND;TZID=America/Chicago:20261115T190000
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:After Sunday PM service. From the SOC Campus Ministry semeste
+ r schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:devo-and-draw-that-2026-11-16-53@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Devo and Draw That
+DTSTART;TZID=America/Chicago:20261116T190000
+DTEND;TZID=America/Chicago:20261116T210000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Refuel Monday Fellowship\, 7:00 PM. From the SOC Campus Minis
+ try semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:thanksgiving-meal-2026-11-17-54@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Thanksgiving Meal
+DTSTART;TZID=America/Chicago:20261117T110000
+DTEND;TZID=America/Chicago:20261117T130000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Tuesday Lunch\, 11:00 AM-1:00 PM. From the SOC Campus Ministr
+ y semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:raking-leaves-and-chick-fil-a-2026-11-23-55@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Raking Leaves and Chick-fil-A
+DTSTART;TZID=America/Chicago:20261123T190000
+DTEND;TZID=America/Chicago:20261123T210000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Refuel Monday Fellowship\, 7:00 PM. From the SOC Campus Minis
+ try semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:wednesday-bible-classes-thanksgiving-2026-11-25-56@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Wednesday Bible Classes: Thanksgiving
+DTSTART;TZID=America/Chicago:20261125T183000
+DTEND;TZID=America/Chicago:20261125T193000
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:Wednesday Bible Classes. From the SOC Campus Ministry semeste
+ r schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:sunday-bible-class-thanksgiving-2026-11-29-57@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Sunday Bible Class: Thanksgiving
+DTSTART;TZID=America/Chicago:20261129T101500
+DTEND;TZID=America/Chicago:20261129T110000
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:Worship at 9:00 AM and 5:00 PM\; Bible class at 10:15 AM. Fro
+ m the SOC Campus Ministry semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:friendsgiving-meal-2026-11-30-58@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Friendsgiving Meal
+DTSTART;TZID=America/Chicago:20261130T190000
+DTEND;TZID=America/Chicago:20261130T210000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Refuel Monday Fellowship\, 7:00 PM. From the SOC Campus Minis
+ try semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:italian-lunch-2026-12-01-59@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Italian Lunch
+DTSTART;TZID=America/Chicago:20261201T110000
+DTEND;TZID=America/Chicago:20261201T130000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Tuesday Lunch\, 11:00 AM-1:00 PM. From the SOC Campus Ministr
+ y semester schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:wednesday-bible-classes-finishing-strong-2026-12-02-60@soc-tennessee-
+ tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Wednesday Bible Classes: Finishing Strong
+DTSTART;TZID=America/Chicago:20261202T183000
+DTEND;TZID=America/Chicago:20261202T193000
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:Series runs December 2-9. From the SOC Campus Ministry semest
+ er schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:sunday-bible-class-how-to-study-2026-12-06-61@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Sunday Bible Class: How to Study
+DTSTART;TZID=America/Chicago:20261206T101500
+DTEND;TZID=America/Chicago:20261206T110000
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:Series runs December 6-27. From the SOC Campus Ministry semes
+ ter schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:wednesday-bible-classes-finishing-strong-2026-12-09-62@soc-tennessee-
+ tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Wednesday Bible Classes: Finishing Strong
+DTSTART;TZID=America/Chicago:20261209T183000
+DTEND;TZID=America/Chicago:20261209T193000
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:Wednesday Bible Classes. From the SOC Campus Ministry semeste
+ r schedule.
+END:VEVENT
+BEGIN:VEVENT
+UID:graduation-2026-12-11-63@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Graduation
+DTSTART;VALUE=DATE:20261211
+DTEND;VALUE=DATE:20261212
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Tennessee Tech graduation. From the SOC Campus Ministry semes
+ ter schedule.
+END:VEVENT
+END:VCALENDAR

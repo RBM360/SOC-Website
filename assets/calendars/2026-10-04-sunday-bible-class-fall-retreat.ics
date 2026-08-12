@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//SOC Campus Ministry//SOC Website//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Sunday Bible Class: Fall Retreat
+X-WR-TIMEZONE:America/Chicago
+BEGIN:VEVENT
+UID:sunday-bible-class-fall-retreat-2026-10-04-0@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Sunday Bible Class: Fall Retreat
+DTSTART;TZID=America/Chicago:20261004T101500
+DTEND;TZID=America/Chicago:20261004T110000
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:Worship at 9:00 AM and 5:00 PM\; Bible class at 10:15 AM. Fro
+ m the SOC Campus Ministry semester schedule.
+END:VEVENT
+END:VCALENDAR

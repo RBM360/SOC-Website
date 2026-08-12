@@ -1182,6 +1182,68 @@ blockquote {
   background: #f2ebe4;
 }
 
+.past-events {
+  background: rgba(255, 255, 255, 0.42);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 0 10px 24px rgba(29, 23, 18, 0.06);
+}
+
+.past-events summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.15rem;
+  color: var(--ink);
+  cursor: pointer;
+  list-style-position: inside;
+}
+
+.past-events summary span {
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.past-events summary small {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.past-events-groups {
+  display: grid;
+  gap: 1.25rem;
+  padding: 0 1.15rem 1.15rem;
+}
+
+.past-events-month {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.past-events-month h3 {
+  margin: 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.past-events-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.past-events .calendar-event {
+  min-height: 92px;
+  background: rgba(250, 248, 242, 0.76);
+  opacity: 0.78;
+}
+
 .flyer-reference {
   background: var(--tan);
 }
@@ -1459,6 +1521,74 @@ blockquote {
   border: 3px solid rgba(255, 255, 255, 0.78);
   border-radius: 8px;
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+}
+
+.subscribe-dialog {
+  width: min(calc(100% - 2rem), 440px);
+  max-width: 96vw;
+  padding: 0;
+  background: var(--cream-light);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.subscribe-dialog::backdrop {
+  background: rgba(29, 23, 18, 0.42);
+  backdrop-filter: blur(6px);
+}
+
+.subscribe-dialog-panel {
+  position: relative;
+  display: grid;
+  gap: 0.9rem;
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+.subscribe-dialog-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  min-height: 40px;
+  padding: 0;
+  color: var(--ink);
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.subscribe-dialog-panel h2 {
+  margin: 0;
+  padding-right: 2.5rem;
+  font-family: "Chewy", "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.subscribe-dialog-panel p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.subscribe-options {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+}
+
+.subscribe-options .calendar-download {
+  width: 100%;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1850,6 +1980,16 @@ blockquote {
 
   .contact-link-grid a {
     min-height: 0;
+  }
+
+  .past-events summary {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .past-events-list {
+    grid-template-columns: 1fr;
   }
 
   .calendar-event {

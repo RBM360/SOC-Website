@@ -3,7 +3,7 @@ import { dirname, extname, join, normalize, resolve } from "node:path";
 
 const root = process.cwd();
 const htmlFiles = readdirSync(root).filter((file) => file.endsWith(".html"));
-const checkedExtensions = new Set([".css", ".js", ".jpg", ".jpeg", ".png", ".ttf", ".html"]);
+const checkedExtensions = new Set([".css", ".js", ".jpg", ".jpeg", ".png", ".ttf", ".html", ".ics"]);
 const requiredHeaders = [
   "Content-Security-Policy",
   "Referrer-Policy",

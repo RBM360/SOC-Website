@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//SOC Campus Ministry//SOC Website//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Devo and Nerf Wars
+X-WR-TIMEZONE:America/Chicago
+BEGIN:VEVENT
+UID:devo-and-nerf-wars-2026-08-24-0@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Devo and Nerf Wars
+DTSTART;TZID=America/Chicago:20260824T190000
+DTEND;TZID=America/Chicago:20260824T210000
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Refuel Monday Fellowship\, 7:00 PM. From the SOC Campus Minis
+ try semester schedule.
+END:VEVENT
+END:VCALENDAR

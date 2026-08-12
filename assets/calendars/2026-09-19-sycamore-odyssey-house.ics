@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//SOC Campus Ministry//SOC Website//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Sycamore Odyssey House
+X-WR-TIMEZONE:America/Chicago
+BEGIN:VEVENT
+UID:sycamore-odyssey-house-2026-09-19-0@soc-tennessee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Sycamore Odyssey House
+DTSTART;VALUE=DATE:20260919
+DTEND;VALUE=DATE:20260920
+LOCATION:1201 Virginia Ave\, Cookeville\, TN
+DESCRIPTION:Saturday congregation event. From the SOC Campus Ministry sem
+ ester schedule.
+END:VEVENT
+END:VCALENDAR

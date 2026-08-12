@@ -34,6 +34,15 @@ Then open `http://localhost:5173`.
 If that port is already busy, the dev server will automatically choose the next
 open port and print the exact URL.
 
+To test from a phone on the same Wi-Fi, run:
+
+```bash
+npm run dev -- --host 0.0.0.0
+```
+
+The dev server will print both the local computer URL and the reachable network
+URL for your phone.
+
 You can also open `index.html` directly in a browser. No build step is required.
 
 ## Validate Before Deploying
@@ -114,11 +123,18 @@ When the next semester schedule is ready:
 1. Replace or add the new flyer image in `assets/flyers`.
 2. Update the visible calendar cards in `activities.html`.
 3. Update matching event data in `scripts/site.js` so homepage previews and
-   `.ics` calendar downloads stay correct.
-4. Run `npm run validate`.
+   `.ics` calendar files stay correct.
+4. Run `npm run validate`. This regenerates the read-only calendar subscription
+   files in `assets/calendars`.
 5. Open the site locally with `npm run dev` and spot-check Home, Calendar,
    Trips, About, Contact, and Gallery on desktop and mobile widths.
 
 Use `assets/optimized` for display photos when possible. Photos can be cropped
 with `object-fit: cover` in framed cards, but flyers, calendars, and coordinator
 graphics should use `object-fit: contain` so they are never stretched or cut off.
+
+The semester calendar is published as a read-only subscribed calendar. Students
+can subscribe from their calendar app, but they cannot edit the website's source
+events. If they change or copy an event locally, that only affects their own
+device. To update everyone, edit the website event data, run `npm run validate`,
+and redeploy the updated `assets/calendars` files.

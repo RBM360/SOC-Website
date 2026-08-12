@@ -1,15 +1,20 @@
 import { createReadStream, existsSync, statSync } from "node:fs";
 import { createServer } from "node:http";
+import { networkInterfaces } from "node:os";
 import { extname, join, normalize, resolve } from "node:path";
 
 const root = process.cwd();
 const startPort = Number.parseInt(process.env.PORT || "5173", 10);
 const maxAttempts = 20;
+const hostArgIndex = process.argv.indexOf("--host");
+const requestedHost = hostArgIndex >= 0 ? process.argv[hostArgIndex + 1] : process.env.HOST;
+const host = requestedHost || "127.0.0.1";
 
 const mimeTypes = {
   ".css": "text/css; charset=utf-8",
   ".gif": "image/gif",
   ".html": "text/html; charset=utf-8",
+  ".ics": "text/calendar; charset=utf-8",
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",
   ".js": "text/javascript; charset=utf-8",
@@ -68,6 +73,23 @@ function createStaticServer() {
   });
 }
 
+function getDisplayHosts(port) {
+  if (host !== "0.0.0.0" && host !== "::") {
+    return [`http://${host}:${port}`];
+  }
+
+  const localNetworkUrls = Object.values(networkInterfaces())
+    .flat()
+    .filter((networkInterface) => networkInterface && networkInterface.family === "IPv4" && !networkInterface.internal)
+    .map((networkInterface) => `http://${networkInterface.address}:${port}`);
+
+  return [
+    `http://localhost:${port}`,
+    ...localNetworkUrls,
+    "Use one of the non-localhost URLs on a phone connected to the same Wi-Fi."
+  ];
+}
+
 function listen(port, attemptsLeft) {
   const server = createStaticServer();
 
@@ -81,8 +103,11 @@ function listen(port, attemptsLeft) {
     process.exit(1);
   });
 
-  server.listen(port, "127.0.0.1", () => {
-    console.log(`SOC website running at http://127.0.0.1:${port}`);
+  server.listen(port, host, () => {
+    console.log("SOC website running:");
+    for (const displayHost of getDisplayHosts(port)) {
+      console.log(`  ${displayHost}`);
+    }
   });
 }
 

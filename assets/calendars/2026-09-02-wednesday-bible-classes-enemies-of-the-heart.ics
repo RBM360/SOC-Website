@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//SOC Campus Ministry//SOC Website//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Wednesday Bible Classes: Enemies of the Heart
+X-WR-TIMEZONE:America/Chicago
+BEGIN:VEVENT
+UID:wednesday-bible-classes-enemies-of-the-heart-2026-09-02-0@soc-tenness
+ ee-tech
+DTSTAMP:20260811T221624Z
+LAST-MODIFIED:20260811T221624Z
+SEQUENCE:0
+SUMMARY:Wednesday Bible Classes: Enemies of the Heart
+DTSTART;TZID=America/Chicago:20260902T183000
+DTEND;TZID=America/Chicago:20260902T193000
+LOCATION:1144 Crescent Drive\, Cookeville\, TN
+DESCRIPTION:Series runs September 2-30. From the SOC Campus Ministry seme
+ ster schedule.
+END:VEVENT
+END:VCALENDAR
